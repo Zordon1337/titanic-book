@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+    <form action="/search" method="get">
+        <input name="q" style="background-color: black;color:white"/>
+        <input type="submit" value="Search!" style="background-color: black;color:white"/>
+    </form>
+    <h4>Titanic Make It A Quote Collection</h4>
+    <p>ffs, why did I even make it</p>
+    <div class='row'>
+        {% for res in x %}
+            {% if loop.index0 % 3 == 0 and loop.index0 != 0 %}
+                <br>
+            {% endif %}
+            <img src="{{ res }}" width="386" height="200" />
+        {% endfor %}
+    </div>
+    <div class='footer' width="1158">
+        <p>Insert copyright yapping here</p>
+        <p>osuTitanic 2023-2024</p>
+    </div>
+</body>
+</html>
