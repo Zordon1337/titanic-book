@@ -7,22 +7,38 @@
     <link rel="stylesheet" href="/static/main.css">
 </head>
 <body>
-    <form action="/search" method="get">
-        <input name="q" style="background-color: black;color:white"/>
-        <input type="submit" value="Search!" style="background-color: black;color:white"/>
-    </form>
-    <h4>Titanic Make It A Quote Collection</h4>
-    <p>ffs, why did I even make it</p>
-    <div class='row'>
-        {% for res in x %}
-            {% if loop.index0 % 3 == 0 and loop.index0 != 0 %}
-                <br>
-            {% endif %}
-            <img src="{{ res }}" width="386" height="200" />
-        {% endfor %}
+    <header class="top-bar">
+        <div class="logo">
+            <img src="/static/logo.png" alt="Logo">
+        </div>
+        <div class="search-bar">
+            <form action="/search" method="get">
+                <input type="text" name="q" placeholder="Search..."/>
+                <input type="submit" value="Search!" />
+            </form>
+        </div>
+    </header>
+
+    <div class="content">
+        <div class="logobig">
+            <img src="/static/logob.png" alt="Logo">
+        </div>
+        <h4>(quote of the day)</h4>
+        <p>ffs, why did I even make it</p>
+        
+        <div class='row'>
+            {% for res in x %}
+                {% if loop.index0 % 3 == 0 and loop.index0 != 0 %}
+                    <br>
+                {% endif %}
+                <img src="{{ res }}" width="386" height="200" />
+            {% endfor %}
+        </div>
     </div>
-    <div class='footer' width="1158">
-        <p>Insert copyright yapping here</p>
+
+
+    <div class='footer'>
+        <p>theres a pipe bomb in your titanic client</p>
         <p>osuTitanic 2023-2024</p>
     </div>
 </body>
