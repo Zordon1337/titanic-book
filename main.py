@@ -12,7 +12,7 @@ app.mount("/images", StaticFiles(directory="images"), name="images")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 security = HTTPBasic()
 idkshit = {
-    "admin": "recorderinthesandybridge"
+    "admin": "admin"
 }
 templates = Jinja2Templates(directory="templates")
 connection = pymysql.connect(
