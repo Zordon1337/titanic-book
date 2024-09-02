@@ -16,10 +16,10 @@ idkshit = {
 }
 templates = Jinja2Templates(directory="templates")
 connection = pymysql.connect(
-        host='',
-        user='',
-        password='',
-        database='',
+        host='localhost',
+        user='root',
+        password='test',
+        database='booktitanic',
         cursorclass=pymysql.cursors.DictCursor 
 )
 def auth(credentials: HTTPBasicCredentials = Depends(security)):
