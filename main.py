@@ -38,6 +38,7 @@ def handle_index():
 
 @app.post("/upload")
 async def upload(desc: str = Form(...,alias='desc'),file: UploadFile = File(...), username: str = Depends(auth)):
+    connection.ping(True)
     cursor = connection.cursor()
     cursor.execute("INSERT INTO `gifs` (`file`, `tag`) VALUES (%s, %s);", (f"./images/{file.filename}", desc))
     connection.commit()
@@ -46,6 +47,7 @@ async def upload(desc: str = Form(...,alias='desc'),file: UploadFile = File(...)
     return {"Result":"Ok"}
 @app.get("/search")
 async def search(query: str = Query(..., alias="q")):
+    connection.ping(True)
     cursor = connection.cursor()
     cursor.execute("SELECT * FROM gifs")
     results = cursor.fetchall()
